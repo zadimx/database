@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="com.navareno.database:jar">
+    <output-path>$APPLICATION_CONFIG_DIR$/consoles/db/out/artifacts/com_navareno_database_jar</output-path>
+    <root id="archive" name="com.navareno.database.jar">
+      <element id="module-output" name="com.navareno.database" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
