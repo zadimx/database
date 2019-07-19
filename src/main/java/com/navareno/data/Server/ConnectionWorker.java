@@ -42,26 +42,26 @@ public class ConnectionWorker implements Runnable, Serializable {
     private OutputStream outputStream = null;
     private ObjectOutputStream objectOutputStream = null;
     private HashMap<String, String[]> mapTableAndAxis = new HashMap<>();
-    private String[] arrayAxisT1 = new String[6];
-    private String[] arrayAxisT2 = new String[6];
-    private String[] arrayAxisT3 = new String[6];
-    private String[] arrayAxisT4 = new String[6];
-    private String[] arrayAxisT5 = new String[6];
-    private String[] arrayAxisT6 = new String[6];
-    private String[] arrayAxisT7 = new String[6];
-    private String[] arrayAxisT8 = new String[6];
-    private String[] arrayAxisT9 = new String[6];
-    private String[] arrayAxisT10 = new String[6];
-    private String[] arrayAxisT11 = new String[6];
-    private String[] arrayAxisT12 = new String[6];
-    private String[] arrayAxisT13 = new String[6];
-    private String[] arrayAxisT14 = new String[6];
-    private String[] arrayAxisT15 = new String[6];
-    private String[] arrayAxisT16 = new String[6];
-    private String[] arrayAxisT17 = new String[6];
-    private String[] arrayAxisT18 = new String[6];
-    private String[] arrayAxisT19 = new String[6];
-    private String[] arrayAxisT20 = new String[6];
+    private String[] arrayAxisT1 = new String[7];
+    private String[] arrayAxisT2 = new String[7];
+    private String[] arrayAxisT3 = new String[7];
+    private String[] arrayAxisT4 = new String[7];
+    private String[] arrayAxisT5 = new String[7];
+    private String[] arrayAxisT6 = new String[7];
+    private String[] arrayAxisT7 = new String[7];
+    private String[] arrayAxisT8 = new String[7];
+    private String[] arrayAxisT9 = new String[7];
+    private String[] arrayAxisT10 = new String[7];
+    private String[] arrayAxisT11 = new String[7];
+    private String[] arrayAxisT12 = new String[7];
+    private String[] arrayAxisT13 = new String[7];
+    private String[] arrayAxisT14 = new String[7];
+    private String[] arrayAxisT15 = new String[7];
+    private String[] arrayAxisT16 = new String[7];
+    private String[] arrayAxisT17 = new String[7];
+    private String[] arrayAxisT18 = new String[7];
+    private String[] arrayAxisT19 = new String[7];
+    private String[] arrayAxisT20 = new String[7];
 
     private static int countRead=0;
 
@@ -216,6 +216,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT1[3]= String.valueOf(selectData1.getAxis4());
                                         arrayAxisT1[4]= selectData1.getLatitude();
                                         arrayAxisT1[5]= selectData1.getLongitude();
+                                        arrayAxisT1[6]= "1t";
                                         mapTableAndAxis.put("1t",arrayAxisT1);
 
 
@@ -225,6 +226,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT2[3]= String.valueOf(selectData2.getAxis4());
                                         arrayAxisT2[4]= selectData2.getLatitude();
                                         arrayAxisT2[5]= selectData2.getLongitude();
+                                        arrayAxisT2[6]= "2t";
                                         mapTableAndAxis.put("2t",arrayAxisT2);
 
                                         arrayAxisT3[0]= String.valueOf(selectData3.getAxis1());
@@ -233,6 +235,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT3[3]= String.valueOf(selectData3.getAxis4());
                                         arrayAxisT3[4]= selectData3.getLatitude();
                                         arrayAxisT3[5]= selectData3.getLongitude();
+                                        arrayAxisT3[6]= "3t";
                                         mapTableAndAxis.put("3t",arrayAxisT3);
 
 
@@ -242,6 +245,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT4[3]= String.valueOf(selectData4.getAxis4());
                                         arrayAxisT4[4]= selectData4.getLatitude();
                                         arrayAxisT4[5]= selectData4.getLongitude();
+                                        arrayAxisT4[6]= "4t";
                                         mapTableAndAxis.put("4t",arrayAxisT4);
 
                                         arrayAxisT5[0]= String.valueOf(selectData5.getAxis1());
@@ -250,6 +254,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT5[3]= String.valueOf(selectData5.getAxis4());
                                         arrayAxisT5[4]= selectData5.getLatitude();
                                         arrayAxisT5[5]= selectData5.getLongitude();
+                                        arrayAxisT5[6]= "5t";
                                         mapTableAndAxis.put("5t",arrayAxisT5);
 
 
@@ -259,6 +264,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT6[3]= String.valueOf(selectData6.getAxis4());
                                         arrayAxisT6[4]= selectData6.getLatitude();
                                         arrayAxisT6[5]= selectData6.getLongitude();
+                                        arrayAxisT6[6]= "6t";
                                         mapTableAndAxis.put("6t",arrayAxisT6);
 
                                         arrayAxisT7[0]= String.valueOf(selectData7.getAxis1());
@@ -267,6 +273,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT7[3]= String.valueOf(selectData7.getAxis4());
                                         arrayAxisT7[4]= selectData7.getLatitude();
                                         arrayAxisT7[5]= selectData7.getLongitude();
+                                        arrayAxisT7[6]= "7t";
                                         mapTableAndAxis.put("7t",arrayAxisT7);
 
 
@@ -276,6 +283,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT8[3]= String.valueOf(selectData8.getAxis4());
                                         arrayAxisT8[4]= selectData8.getLatitude();
                                         arrayAxisT8[5]= selectData8.getLongitude();
+                                        arrayAxisT8[6]= "8t";
                                         mapTableAndAxis.put("8t",arrayAxisT8);
 
                                         arrayAxisT9[0]= String.valueOf(selectData9.getAxis1());
@@ -284,6 +292,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT9[3]= String.valueOf(selectData9.getAxis4());
                                         arrayAxisT9[4]= selectData9.getLatitude();
                                         arrayAxisT9[5]= selectData9.getLongitude();
+                                        arrayAxisT9[6]= "9t";
                                         mapTableAndAxis.put("9t",arrayAxisT9);
 
 
@@ -293,6 +302,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT10[3]= String.valueOf(selectData10.getAxis4());
                                         arrayAxisT10[4]= selectData10.getLatitude();
                                         arrayAxisT10[5]= selectData10.getLongitude();
+                                        arrayAxisT10[6]= "10t";
                                         mapTableAndAxis.put("10t",arrayAxisT2);
 
                                         arrayAxisT11[0]= String.valueOf(selectData11.getAxis1());
@@ -301,6 +311,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT11[3]= String.valueOf(selectData11.getAxis4());
                                         arrayAxisT11[4]= selectData11.getLatitude();
                                         arrayAxisT11[5]= selectData11.getLongitude();
+                                        arrayAxisT11[6]= "11t";
                                         mapTableAndAxis.put("11t",arrayAxisT11);
 
 
@@ -310,6 +321,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT12[3]= String.valueOf(selectData12.getAxis4());
                                         arrayAxisT12[4]= selectData12.getLatitude();
                                         arrayAxisT12[5]= selectData12.getLongitude();
+                                        arrayAxisT12[6]= "12t";
                                         mapTableAndAxis.put("12t",arrayAxisT12);
 
                                         arrayAxisT13[0]= String.valueOf(selectData13.getAxis1());
@@ -318,6 +330,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT13[3]= String.valueOf(selectData13.getAxis4());
                                         arrayAxisT13[4]= selectData13.getLatitude();
                                         arrayAxisT13[5]= selectData13.getLongitude();
+                                        arrayAxisT13[6]= "13t";
                                         mapTableAndAxis.put("13t",arrayAxisT13);
 
 
@@ -327,6 +340,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT14[3]= String.valueOf(selectData14.getAxis4());
                                         arrayAxisT14[4]= selectData14.getLatitude();
                                         arrayAxisT14[5]= selectData14.getLongitude();
+                                        arrayAxisT14[6]= "14t";
                                         mapTableAndAxis.put("14t",arrayAxisT14);
 
                                         arrayAxisT15[0]= String.valueOf(selectData15.getAxis1());
@@ -335,6 +349,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT15[3]= String.valueOf(selectData15.getAxis4());
                                         arrayAxisT15[4]= selectData15.getLatitude();
                                         arrayAxisT15[5]= selectData15.getLongitude();
+                                        arrayAxisT15[6]= "15t";
                                         mapTableAndAxis.put("15t",arrayAxisT15);
 
 
@@ -344,6 +359,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT16[3]= String.valueOf(selectData16.getAxis4());
                                         arrayAxisT16[4]= selectData16.getLatitude();
                                         arrayAxisT16[5]= selectData16.getLongitude();
+                                        arrayAxisT16[6]= "16t";
                                         mapTableAndAxis.put("16t",arrayAxisT16);
 
                                         arrayAxisT17[0]= String.valueOf(selectData17.getAxis1());
@@ -352,6 +368,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT17[3]= String.valueOf(selectData17.getAxis4());
                                         arrayAxisT17[4]= selectData17.getLatitude();
                                         arrayAxisT17[5]= selectData17.getLongitude();
+                                        arrayAxisT17[6]= "17t";
                                         mapTableAndAxis.put("17t",arrayAxisT17);
 
 
@@ -361,6 +378,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT18[3]= String.valueOf(selectData18.getAxis4());
                                         arrayAxisT18[4]= selectData18.getLatitude();
                                         arrayAxisT18[5]= selectData18.getLongitude();
+                                        arrayAxisT18[6]= "18t";
                                         mapTableAndAxis.put("18t",arrayAxisT18);
 
                                         arrayAxisT19[0]= String.valueOf(selectData19.getAxis1());
@@ -369,6 +387,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT19[3]= String.valueOf(selectData19.getAxis4());
                                         arrayAxisT19[4]= selectData19.getLatitude();
                                         arrayAxisT19[5]= selectData19.getLongitude();
+                                        arrayAxisT19[6]= "19t";
                                         mapTableAndAxis.put("19t",arrayAxisT19);
 
 
@@ -378,6 +397,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT20[3]= String.valueOf(selectData20.getAxis4());
                                         arrayAxisT20[4]= selectData20.getLatitude();
                                         arrayAxisT20[5]= selectData20.getLongitude();
+                                        arrayAxisT20[6]= "20t";
                                         mapTableAndAxis.put("20t",arrayAxisT20);
 
                                         ObjectOutputStream out = null;
