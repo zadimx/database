@@ -303,7 +303,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         arrayAxisT10[4]= selectData10.getLatitude();
                                         arrayAxisT10[5]= selectData10.getLongitude();
                                         arrayAxisT10[6]= "10t";
-                                        mapTableAndAxis.put("10t",arrayAxisT2);
+                                        mapTableAndAxis.put("10t",arrayAxisT10);
 
                                         arrayAxisT11[0]= String.valueOf(selectData11.getAxis1());
                                         arrayAxisT11[1]= String.valueOf(selectData11.getAxis2());
