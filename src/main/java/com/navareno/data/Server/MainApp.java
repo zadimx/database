@@ -62,7 +62,7 @@ public class MainApp extends JFrame{
 //                        label.setText("output: "+(new DBWorker()).getYyy());
                         SwingUtilities.invokeLater(new Runnable() {
                             public void run() {
-                                label2.setText("input: "+ Server.conect);
+//                                label2.setText("input: "+ Server.conect);
 //                                label.setText(ConnectionWorker.string1);
 //                                label1.setText("port: "+ ConnectionWorker.getCountRead());
 

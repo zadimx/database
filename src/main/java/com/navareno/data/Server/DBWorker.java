@@ -20,7 +20,6 @@ public class DBWorker {
     private Connection connection;
     public DBWorker() throws SQLException {
         try {
-            Driver driver = null;
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             yyy="Connnn";
         } catch (SQLException e) {

@@ -2,6 +2,7 @@ package com.navareno.data.AccessServer.Update;
 
 import com.navareno.data.DB.Select.SelectData1;
 import com.navareno.data.DB.Update.UpdateData1;
+import com.navareno.data.Server.ConnectionWorker;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import java.io.IOException;
@@ -9,11 +10,12 @@ import java.io.InputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class UpdateTable1 {
+public class UpdateTable1 extends Socket {
 
     public UpdateTable1(ArrayList<String> arrayListAxis, String[] subStrNew, String[] subStr, String[] subStrGPS, String[] subStrGPSNew, Socket clientSocket, String string, int weight, UpdateData1 updateData1,
                         int weightNumberSensor, int weightData, int weightData1, int weightData2, int weightData3, int weightData4, OutputStream outputStream) {
@@ -31,11 +33,11 @@ public class UpdateTable1 {
                 }
                 try {
 
-                    if (subStrGPS[2] != null && subStrGPS[4] != null && !subStrGPS[2].isEmpty() && !subStrGPS[4].isEmpty()) {
+                    if (subStrGPS[2] != null && subStrGPS[4] != null && !subStrGPS[2].isEmpty() && !subStrGPS[4].isEmpty() && subStrGPS[2] != "null" && subStrGPS[4] != "null") {
                         subStrGPSNew[0] = subStrGPS[2];
                         subStrGPSNew[1] = subStrGPS[4];
-
-                        System.out.println(subStrGPS[2]+subStrGPS[4]+"GPS");
+                        new ConnectionWorker(this).setSubStrGPS();
+                        System.out.println(subStrGPS[2]+subStrGPS[4]+" GPS New");
                     }
                     else {
                         SelectData1 data = null;
@@ -46,7 +48,7 @@ public class UpdateTable1 {
                         }
                         subStrGPSNew[0] = data.getLongitude();
                         subStrGPSNew[1] = data.getLatitude();
-                        System.out.println(subStrGPSNew[0]+subStrGPSNew[1]+"New");
+                        System.out.println(subStrGPSNew[0]+subStrGPSNew[1]+" GPS Old");
                     }
                 }
                 catch (NullPointerException e)

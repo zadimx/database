@@ -39,7 +39,6 @@ public class ConnectionWorker implements Runnable, Serializable {
     /* входной поток, через который получаем данные с сокета */
     private InputStream inputStream = null;
     private OutputStream outputStream = null;
-    private ObjectOutputStream objectOutputStream = null;
     private HashMap<String, String[]> mapTableAndAxis = new HashMap<>();
     private String[] arrayAxisT1 = new String[7];
     private String[] arrayAxisT2 = new String[7];
@@ -63,17 +62,21 @@ public class ConnectionWorker implements Runnable, Serializable {
     private String[] arrayAxisT20 = new String[7];
 
 
+    public void setSubStrGPS() {
+        this.subStrGPS[2] = null;
+        this.subStrGPS[4] = null;
+    }
+
+    public String[] getSubStrGPS() {
+        return subStrGPS;
+    }
+
     public ConnectionWorker(Socket socket) {
         this.clientSocket = socket;
     }
 
     @Override
     public void run() {
-        try {
-            SelectData3 selectData3 = new SelectData3();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         /* получаем входной поток */
         try {
             InetSocketAddress sockaddr = (InetSocketAddress) clientSocket.getRemoteSocketAddress();
@@ -81,7 +84,6 @@ public class ConnectionWorker implements Runnable, Serializable {
             System.out.println(sockaddr.getAddress());
             inputStream = clientSocket.getInputStream();
             outputStream = clientSocket.getOutputStream();
-
 
         } catch (IOException e) {
             System.out.println("Cant get input stream");
@@ -118,10 +120,12 @@ public class ConnectionWorker implements Runnable, Serializable {
                 subStr = str.split(delimeter);
                 subStrNew = new String[subStr.length];
 
+//              Парсинг строки геолокации
                 for (String a : subStr
                 ) {
                     if (a.contains("$GNGGA")) {
                         subStrGPS = a.split(",");
+                        System.out.println(subStrGPS.toString());
                     }
                 }
 
@@ -163,6 +167,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                     }
 
                 }
+
 //              Обновление данных в таблице №1
                 new UpdateTable1(arrayListAxis, subStrNew, subStr, subStrGPS, subStrGPSNew, clientSocket, string, weight, updateData1, weightNumberSensor, weightData, weightData1, weightData2, weightData3, weightData4, outputStream);
 
@@ -170,7 +175,6 @@ public class ConnectionWorker implements Runnable, Serializable {
                 /* если мы получили -1, значит прервался наш поток с данными  */
                 if (count == -1) {
                     System.out.println("close socket");
-                    Server.setConect("Kaka");
                     try {
                         clientSocket.close();
                     } catch (IOException e) {

@@ -12,10 +12,6 @@ public class Server implements Runnable {
 
 
     public Thread t;
-    public static String conect = "Kaka";
-    public static void setConect(String conect) {
-        Server.conect = conect;
-    }
     /*
      * Реалезация шаблона Singleton
      * {@link https://en.wikipedia.org/wiki/Singleton_pattern}
@@ -27,9 +23,6 @@ public class Server implements Runnable {
     /* Порт, на который сервер принимает соеденения */
     private final int SERVER_PORT = 7777;
 
-    public int getSERVER_PORT() {
-        return SERVER_PORT;
-    }
     /* Сокет, который обрабатывает соединения на сервере */
     private ServerSocket serverSoket = null;
 
@@ -67,7 +60,6 @@ public class Server implements Runnable {
                     /* ждем нового соединения  */
                     worker = new ConnectionWorker(serverSoket.accept());
                     System.out.println("Get client connection ");
-                    conect="Huil";
                     /* создается новый поток, в котором обрабатывается соединение */
                     t = new Thread(worker);
                     t.start();
