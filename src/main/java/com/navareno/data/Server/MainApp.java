@@ -43,7 +43,7 @@ public class MainApp extends JFrame{
         global = "null";
         label.setText(global);
 //        label1.setText("port: "+ Server.getServer().getSERVER_PORT());
-        label1.setText("port: "+ ConnectionWorker.getCountRead());
+//        label1.setText("port: "+ ConnectionWorker.getCountRead());
 //        label2.setText(ConnectionWorker.string);
         setSize(300,150);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,8 +63,8 @@ public class MainApp extends JFrame{
                         SwingUtilities.invokeLater(new Runnable() {
                             public void run() {
                                 label2.setText("input: "+ Server.conect);
-                                label.setText(ConnectionWorker.string1);
-                                label1.setText("port: "+ ConnectionWorker.getCountRead());
+//                                label.setText(ConnectionWorker.string1);
+//                                label1.setText("port: "+ ConnectionWorker.getCountRead());
 
 
 //                                new UpdateData1(666);
