@@ -86,16 +86,9 @@ public class ConnectionWorker implements Runnable, Serializable {
             InetSocketAddress sockaddr = (InetSocketAddress)clientSocket.getRemoteSocketAddress();
             String gh = String.valueOf(sockaddr.getAddress());
             System.out.println(sockaddr.getAddress());
-//            if (gh.equals("/37.73.249.54") || gh.equals("/37.73.139.15") || gh.equals("/37.73.247.217")) {
             inputStream = clientSocket.getInputStream();
             outputStream = clientSocket.getOutputStream();
-//            }
-//            else {
-//                System.out.println("close socket");
-//                clientSocket.close();
-//            }
-//            System.out.println("Get client connection "+ clientSocket.getRemoteSocketAddress().toString());
-//            System.out.println("Get client connection "+ InetAddress.getLocalHost().toString());
+
 
         } catch (IOException e) {
             System.out.println("Cant get input stream");
@@ -145,23 +138,12 @@ public class ConnectionWorker implements Runnable, Serializable {
                         }
                     }
 
-//                    try(FileWriter writer = new FileWriter("notes3.txt", false))
-//                    {
-//                        // запись всей строки
-//                        text = text +"^^@^^ "+ string;
-//                        writer.write(text);
-//                        // запись по символам
-//                        writer.flush();
-//                    }
-//                    catch(IOException ex){
-//                        System.out.println("Hello "+ex.getMessage());
-//                    }
+
 
                     System.out.println("получили "+string);
-                                if (string.equals(pass[0]+"db")) {
-                                    if (subStrNew == null) {
 
-                                    }
+                    if (string.equals(pass[0]+"db")) {
+                        System.out.println("Отправка данных на телефон");
                                     try {
                                         SelectData1 selectData1 = null;
                                         SelectData2 selectData2 = null;
@@ -426,21 +408,12 @@ public class ConnectionWorker implements Runnable, Serializable {
                                         break;
                                     }
                                 }
-                        if (count == -1 ) {
-                            System.out.println("close socket");
-                            Server.setConect("Kaka");
-                            try {
-                                clientSocket.close();
-                            } catch (IOException e) {
-                                System.out.println("Hello 4 "+e.getMessage());
-                                break;
-                            }
-                            break;
-                        }
-                    else if (Arrays.asList(pass).contains(string)) {
+
+                    if (Arrays.asList(pass).contains(string)) {
                         try {
                             outputStream.write(string.getBytes());
                             outputStream.flush();
+                            System.out.println("Телефон залогинился");
                         } catch (IOException e) {
                             System.out.println("Hello 5 "+e.getMessage());
                             try {
@@ -451,112 +424,107 @@ public class ConnectionWorker implements Runnable, Serializable {
                             break;
                         }
 
-                        System.out.println("отправили "+ string);
-
-                        string = null;
                     }
-                    else if (string.equals("sgkjhcxk6543SlkjfB")&& string !="1t" && string != "2t") {
+                   if (string.equals("sgkjhcxk6543SlkjfB") || string.equals("SERIAL_NUM")) {
                         try {
                             outputStream.write(("done".getBytes()));
                             outputStream.flush();
+                                System.out.println("Девайс залогинился");
+
                         } catch (IOException e) {
                             System.out.println("Hello 6 "+e.getMessage());
                             break;
                         }
-//                        System.out.println("отправили "+ "done");
 
-                        string = null;
-                    }
-                    else if (string.equals("SERIAL_NUM")&& !string.equals("1t") && !string.equals("2t")) {
-                            System.out.println("******2*");
-                        try {
-                            outputStream.write(("done".getBytes()));
-                            outputStream.flush();
-                        } catch (IOException e) {
-                            System.out.println("Hello 7 "+e.getMessage());
-                            try {
-                                clientSocket.close();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-                            break;
-                        }
-//                        System.out.println("отправили "+ "done");
-                        string = null;
                     }
 
-                    else if (subStr.length <= 15 && !string.equals(pass[0]+"db") && !string.equals(pass[0])) {
-                            System.out.println("*******3");
-                        for (int j = 0; j < subStr.length; j++) {
-                            subStrNew[j] = subStr[j].replaceAll("\\s+", "");
-                        }
-
-
-                        for (String x: subStrNew) {
-                            if (NumberUtils.isDigits(x)) {
-                                arrayListAxis.add(x);
+                    if (string.contains("$GNRMC") || string.contains("$GNVTG") || string.contains("$GNGGA") || string.contains("$GPGSV") || string.contains("$GNGLL")) {
+                        if (subStr.length <= 15) {
+                            System.out.println("Девайс отправил данные");
+                            for (int j = 0; j < subStr.length; j++) {
+                                subStrNew[j] = subStr[j].replaceAll("\\s+", "");
                             }
-                        }
-                        try {
 
-                            if (subStrGPS[2] != null && subStrGPS[4] != null && !subStrGPS[2].isEmpty() && !subStrGPS[4].isEmpty()) {
-                                subStrGPSNew[0] = subStrGPS[2];
-                                subStrGPSNew[1] = subStrGPS[4];
 
-                                System.out.println(subStrGPS[2]+subStrGPS[4]+"GPS");
+                            for (String x: subStrNew) {
+                                if (NumberUtils.isDigits(x)) {
+                                    arrayListAxis.add(x);
+                                }
                             }
-                            else {
-                                SelectData1 data = new SelectData1();
-                                subStrGPSNew[0] = data.getLongitude();
-                                subStrGPSNew[1] = data.getLatitude();
-                                System.out.println(subStrGPSNew[0]+subStrGPSNew[1]+"New");
-                            }
-                        }
-                        catch (NullPointerException e)
-                        {
-                            System.out.println("Hello_NULL");
-                        }
-                        for (int j = 0; j < arrayListAxis.size(); j++) {
                             try {
+
+                                if (subStrGPS[2] != null && subStrGPS[4] != null && !subStrGPS[2].isEmpty() && !subStrGPS[4].isEmpty()) {
+                                    subStrGPSNew[0] = subStrGPS[2];
+                                    subStrGPSNew[1] = subStrGPS[4];
+
+                                    System.out.println(subStrGPS[2]+subStrGPS[4]+"GPS");
+                                }
+                                else {
+                                    SelectData1 data = new SelectData1();
+                                    subStrGPSNew[0] = data.getLongitude();
+                                    subStrGPSNew[1] = data.getLatitude();
+                                    System.out.println(subStrGPSNew[0]+subStrGPSNew[1]+"New");
+                                }
+                            }
+                            catch (NullPointerException e)
+                            {
+                                System.out.println("Hello_NULL");
+                            }
+                            for (int j = 0; j < arrayListAxis.size(); j++) {
                                 try {
-                                    weight = Integer.parseInt(arrayListAxis.get(j));
-                                    weightNumberSensor = (0xffff0000 & weight) >> 16;
-                                    weightData = 0x0000ffff & weight;
-                                    weightData = (int) (-862.5 + 1.725 * weightData);
-                                    if (weightNumberSensor == 1) {
-                                        weightData1 = weightData;
+                                    try {
+                                        weight = Integer.parseInt(arrayListAxis.get(j));
+                                        weightNumberSensor = (0xffff0000 & weight) >> 16;
+                                        weightData = 0x0000ffff & weight;
+                                        weightData = (int) (-862.5 + 1.725 * weightData);
+                                        if (weightNumberSensor == 1) {
+                                            weightData1 = weightData;
 
-                                        updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
-                                        updateData1.getConnection().close();
+                                            updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
+                                            updateData1.getConnection().close();
 
-                                    }
-                                    if (weightNumberSensor == 2) {
-                                        weightData2 = weightData;
-                                        updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
-                                        updateData1.getConnection().close();
-                                    }
-                                    if (weightNumberSensor == 3) {
-                                        weightData3 = weightData;
-                                        updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
-                                        updateData1.getConnection().close();
-                                    }
-                                    if (weightNumberSensor == 4) {
-                                        weightData4 = weightData;
-                                        updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
-                                        updateData1.getConnection().close();
-                                    }
+                                        }
+                                        if (weightNumberSensor == 2) {
+                                            weightData2 = weightData;
+                                            updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
+                                            updateData1.getConnection().close();
+                                        }
+                                        if (weightNumberSensor == 3) {
+                                            weightData3 = weightData;
+                                            updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
+                                            updateData1.getConnection().close();
+                                        }
+                                        if (weightNumberSensor == 4) {
+                                            weightData4 = weightData;
+                                            updateData1 = new UpdateData1(weightData1, weightData2, weightData3, weightData4, subStrGPSNew[0]+"", subStrGPSNew[1]+"");
+                                            updateData1.getConnection().close();
+                                        }
 
 
-                                    if (arrayListAxis.size()-1 == j) {
-                                        arrayListAxis.clear();
+                                        if (arrayListAxis.size()-1 == j) {
+                                            arrayListAxis.clear();
+                                        }
+                                        System.out.println("получили номер датчика: " + weightNumberSensor + " данные с датчика: " + weightData);
                                     }
-                                    System.out.println("получили номер датчика: " + weightNumberSensor + " данные с датчика: " + weightData);
-                                }
-                                catch (NumberFormatException e) {
-                                    System.out.println("Юра пидар! оправил вот эту хкйню " + "");
-                                }
-                                catch (SQLException e) {
-                                    System.out.println("Hello 13 "+e.getMessage());
+                                    catch (NumberFormatException e) {
+                                        System.out.println("Юра пидар! оправил вот эту хкйню " + "");
+                                    }
+                                    catch (SQLException e) {
+                                        System.out.println("Hello 13 "+e.getMessage());
+                                        try {
+                                            clientSocket.close();
+                                        } catch (IOException e1) {
+                                            e1.printStackTrace();
+                                        }
+                                        break;
+                                    }
+//                                            else if (countWhat == -1) {
+//                                                System.out.println("close socket");
+//                                                clientSocket.close();
+//                                                break;
+//                                            }
+                                } catch (Exception e) {
+                                    System.out.println("Hello 8 " + e.getMessage());
                                     try {
                                         clientSocket.close();
                                     } catch (IOException e1) {
@@ -564,13 +532,12 @@ public class ConnectionWorker implements Runnable, Serializable {
                                     }
                                     break;
                                 }
-//                                            else if (countWhat == -1) {
-//                                                System.out.println("close socket");
-//                                                clientSocket.close();
-//                                                break;
-//                                            }
-                            } catch (Exception e) {
-                                System.out.println("Hello 8 " + e.getMessage());
+                            }
+                            try {
+                                outputStream.write(("done".getBytes()));
+                                outputStream.flush();
+                            } catch (IOException e) {
+                                System.out.println("Hello 9 "+e.getMessage());
                                 try {
                                     clientSocket.close();
                                 } catch (IOException e1) {
@@ -578,39 +545,10 @@ public class ConnectionWorker implements Runnable, Serializable {
                                 }
                                 break;
                             }
-                        }
-                        try {
-                            outputStream.write(("done".getBytes()));
-                            outputStream.flush();
-                        } catch (IOException e) {
-                            System.out.println("Hello 9 "+e.getMessage());
-                            try {
-                                clientSocket.close();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-                            break;
-                        }
-//                        System.out.println("отправили "+ "done");
-                        string = null;
-                    }
-                    else if(!string.equals("1t") && !string.equals("2t")) {
-                        try {
-                            outputStream.write(("done".getBytes()));
-                            outputStream.flush();
-                        } catch (IOException e) {
-                            System.out.println("Hello 10 "+e.getMessage());
-                            try {
-                                clientSocket.close();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-                            break;
-                        }
-//                        System.out.println("отправили "+ "done");
 
-                        string = null;
+                        }
                     }
+
 
 
                 } else
