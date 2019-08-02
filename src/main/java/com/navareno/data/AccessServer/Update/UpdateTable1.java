@@ -101,11 +101,7 @@ public class UpdateTable1 {
                             }
                             break;
                         }
-//                                            else if (countWhat == -1) {
-//                                                System.out.println("close socket");
-//                                                clientSocket.close();
-//                                                break;
-//                                            }
+
                     } catch (Exception e) {
                         System.out.println("Hello 8 " + e.getMessage());
                         try {
