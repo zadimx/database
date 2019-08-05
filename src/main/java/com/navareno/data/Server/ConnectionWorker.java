@@ -2,7 +2,8 @@ package com.navareno.data.Server;
 
 import com.navareno.data.AccessServer.Select.SelectAccount1;
 import com.navareno.data.AccessServer.Update.UpdateTable1;
-import com.navareno.data.DB.Select.*;
+import com.navareno.data.DB.Insert.InsertData1;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime1;
 import com.navareno.data.DB.Update.UpdateData1;
 
 import java.io.*;
@@ -129,6 +130,37 @@ public class ConnectionWorker implements Runnable, Serializable {
                     }
                 }
 
+//    НАЧАЛО--------------------
+                if (string.equals("hour")) {
+                    SelectDataTime1 selectDataTime1 = null;
+                    try {
+                        selectDataTime1 = new SelectDataTime1();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime1.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
 
                 System.out.println("получили " + string);
 
@@ -138,6 +170,11 @@ public class ConnectionWorker implements Runnable, Serializable {
                     try {
                         outputStream.write(string.getBytes());
                         outputStream.flush();
+//                        try {
+//                            new InsertData1(32,23,234,45,"546.456","45.456");
+//                        } catch (SQLException e) {
+//                            e.printStackTrace();
+//                        }
                         System.out.println("Телефон залогинился");
                     } catch (IOException e) {
                         System.out.println("Hello 5 " + e.getMessage());
@@ -160,6 +197,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                         outputStream.write(("done".getBytes()));
                         outputStream.flush();
                         System.out.println("Девайс залогинился");
+
 
                     } catch (IOException e) {
                         System.out.println("Hello 6 " + e.getMessage());
