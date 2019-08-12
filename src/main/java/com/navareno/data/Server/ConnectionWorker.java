@@ -4,6 +4,7 @@ import com.navareno.data.AccessServer.Select.SelectAccount1;
 import com.navareno.data.AccessServer.Update.UpdateTable1;
 import com.navareno.data.DB.Insert.InsertData1;
 import com.navareno.data.DB.SelectDataTime.SelectDataTime1;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime2;
 import com.navareno.data.DB.Update.UpdateData1;
 
 import java.io.*;
@@ -131,7 +132,7 @@ public class ConnectionWorker implements Runnable, Serializable {
                 }
 
 //    НАЧАЛО--------------------
-                if (string.equals("hour")) {
+                if (string.equals("1t")) {
                     SelectDataTime1 selectDataTime1 = null;
                     try {
                         selectDataTime1 = new SelectDataTime1();
@@ -144,6 +145,38 @@ public class ConnectionWorker implements Runnable, Serializable {
                         try {
                             out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
                             out.writeObject(selectDataTime1.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("2t")) {
+                    SelectDataTime2 selectDataTime2 = null;
+                    try {
+                        selectDataTime2 = new SelectDataTime2();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime2.arrayHistoryValues());
                         } catch ( IOException ex ) {
                             ex.printStackTrace();
                         }
