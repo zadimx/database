@@ -5,6 +5,7 @@ import com.navareno.data.AccessServer.Update.UpdateTable1;
 import com.navareno.data.DB.Insert.InsertData1;
 import com.navareno.data.DB.SelectDataTime.SelectDataTime1;
 import com.navareno.data.DB.SelectDataTime.SelectDataTime2;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime3;
 import com.navareno.data.DB.Update.UpdateData1;
 
 import java.io.*;
@@ -177,6 +178,37 @@ public class ConnectionWorker implements Runnable, Serializable {
                         try {
                             out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
                             out.writeObject(selectDataTime2.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("3t")) {
+                    SelectDataTime3 selectDataTime3 = null;
+                    try {
+                        selectDataTime3 = new SelectDataTime3();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime3.arrayHistoryValues());
                         } catch ( IOException ex ) {
                             ex.printStackTrace();
                         }
