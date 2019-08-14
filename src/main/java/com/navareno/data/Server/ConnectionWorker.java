@@ -1,11 +1,29 @@
 package com.navareno.data.Server;
 
+import com.navareno.data.AccessServer.Insert.InsertTable1;
 import com.navareno.data.AccessServer.Select.SelectAccount1;
 import com.navareno.data.AccessServer.Update.UpdateTable1;
 import com.navareno.data.DB.Insert.InsertData1;
 import com.navareno.data.DB.SelectDataTime.SelectDataTime1;
 import com.navareno.data.DB.SelectDataTime.SelectDataTime2;
 import com.navareno.data.DB.SelectDataTime.SelectDataTime3;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime4;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime5;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime6;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime7;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime8;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime9;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime10;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime11;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime12;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime13;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime14;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime15;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime16;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime17;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime18;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime19;
+import com.navareno.data.DB.SelectDataTime.SelectDataTime20;
 import com.navareno.data.DB.Update.UpdateData1;
 
 import java.io.*;
@@ -31,9 +49,10 @@ public class ConnectionWorker implements Runnable, Serializable {
     private String string;
     private int weight;
     private UpdateData1 updateData1;
+    private InsertData1 insertData1;
     private int weightNumberSensor;
     private int weightData;
-    private int weightData1;
+    private int[] weightData1;
     private int weightData2;
     private int weightData3;
     private int weightData4;
@@ -227,6 +246,539 @@ public class ConnectionWorker implements Runnable, Serializable {
 // ---------------------------------------------
 
 
+                //    НАЧАЛО--------------------
+                if (string.equals("4t")) {
+                    SelectDataTime4 selectDataTime4 = null;
+                    try {
+                        selectDataTime4 = new SelectDataTime4();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime4.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("5t")) {
+                    SelectDataTime5 selectDataTime5 = null;
+                    try {
+                        selectDataTime5 = new SelectDataTime5();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime5.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("6t")) {
+                    SelectDataTime6 selectDataTime6 = null;
+                    try {
+                        selectDataTime6 = new SelectDataTime6();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime6.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("7t")) {
+                    SelectDataTime7 selectDataTime7 = null;
+                    try {
+                        selectDataTime7 = new SelectDataTime7();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime7.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("8t")) {
+                    SelectDataTime8 selectDataTime8 = null;
+                    try {
+                        selectDataTime8 = new SelectDataTime8();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime8.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("9t")) {
+                    SelectDataTime9 selectDataTime9 = null;
+                    try {
+                        selectDataTime9 = new SelectDataTime9();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime9.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("10t")) {
+                    SelectDataTime10 selectDataTime10 = null;
+                    try {
+                        selectDataTime10 = new SelectDataTime10();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime10.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("11t")) {
+                    SelectDataTime11 selectDataTime11 = null;
+                    try {
+                        selectDataTime11 = new SelectDataTime11();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime11.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("12t")) {
+                    SelectDataTime12 selectDataTime12 = null;
+                    try {
+                        selectDataTime12 = new SelectDataTime12();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime12.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("13t")) {
+                    SelectDataTime13 selectDataTime13 = null;
+                    try {
+                        selectDataTime13 = new SelectDataTime13();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime13.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("14t")) {
+                    SelectDataTime14 selectDataTime14 = null;
+                    try {
+                        selectDataTime14 = new SelectDataTime14();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime14.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("15t")) {
+                    SelectDataTime15 selectDataTime15 = null;
+                    try {
+                        selectDataTime15 = new SelectDataTime15();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime15.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("16t")) {
+                    SelectDataTime16 selectDataTime16 = null;
+                    try {
+                        selectDataTime16 = new SelectDataTime16();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime16.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("17t")) {
+                    SelectDataTime17 selectDataTime17 = null;
+                    try {
+                        selectDataTime17 = new SelectDataTime17();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime17.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("18t")) {
+                    SelectDataTime18 selectDataTime18 = null;
+                    try {
+                        selectDataTime18 = new SelectDataTime18();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime18.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+                //    НАЧАЛО--------------------
+                if (string.equals("19t")) {
+                    SelectDataTime19 selectDataTime19 = null;
+                    try {
+                        selectDataTime19 = new SelectDataTime19();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime19.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
+
+                //    НАЧАЛО--------------------
+                if (string.equals("20t")) {
+                    SelectDataTime20 selectDataTime20 = null;
+                    try {
+                        selectDataTime20 = new SelectDataTime20();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        ObjectOutputStream out = null;
+                        try {
+                            out = new ObjectOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
+                            out.writeObject(selectDataTime20.arrayHistoryValues());
+                        } catch ( IOException ex ) {
+                            ex.printStackTrace();
+                        }
+                        out.flush();
+                    } catch (IOException e) {
+                        System.out.println("Hello 2 "+e.getMessage());
+                        try {
+                            clientSocket.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    }
+
+                }
+// ---------------------------------------------
+
                 System.out.println("получили " + string);
 
 
@@ -272,7 +824,8 @@ public class ConnectionWorker implements Runnable, Serializable {
                 }
 
 //              Обновление данных в таблице №1
-                new UpdateTable1(arrayListAxis, subStrNew, subStr, subStrGPS, subStrGPSNew, clientSocket, string, weight, updateData1, weightNumberSensor, weightData, weightData1, weightData2, weightData3, weightData4, outputStream);
+//                new UpdateTable1(arrayListAxis, subStrNew, subStr, subStrGPS, subStrGPSNew, clientSocket, string, weight, updateData1, weightNumberSensor, weightData, weightData1, weightData2, weightData3, weightData4, outputStream);
+                new InsertTable1(arrayListAxis, subStrNew, subStr, subStrGPS, subStrGPSNew, clientSocket, string, weight, insertData1, weightNumberSensor, weightData, weightData1, weightData2, weightData3, weightData4, outputStream);
 
             } else
                 /* если мы получили -1, значит прервался наш поток с данными  */
