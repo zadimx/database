@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class DBWorker {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";
+    private static final String USERNAME = "admin";
+    private static final String PASSWORD = "admin";
 
     public String getYyy() {
         return yyy;
